@@ -1,0 +1,51 @@
+<div class="container">
+  <form  [formGroup]="form" (ngSubmit)="onSubmit()"  enctype="multipart/form-data" >
+       <mat-form-field class="form-full-width">
+          <input matInput placeholder="Titulo do post" formControlName="nome_post" >
+          <mat-error *ngIf="!form.controls['nome_post'].valid">
+              Titulo <strong>obrigatória</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+            <textarea matInput placeholder="Texto do post" formControlName="text" >
+            </textarea>
+            <mat-error *ngIf="!form.controls['text'].valid">
+              Texto é obrigatório <strong>obrigatória</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+          <input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" formControlName="prazo" placeholder="Prazo para aprovação">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+          <mat-hint align="end">Clique no icone para selecionar a data^</mat-hint>
+          <mat-error *ngIf="!form.controls['prazo'].valid">
+            Prazo é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="form-full-width">
+          <mat-radio-group (change)="mostraCampanhas($event)">
+              <label>Cliente: </label>
+              <mat-radio-button *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.nome_cliente}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field class="form-full-width" formGroupName="campanha" >
+            <input [readonly]="disableCampanha" type="text" placeholder="Campanha" aria-label="Campanha" matInput  [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="exibeNome" >
+              <mat-option *ngFor="let campanha of campanhas" [value]="campanha" (onSelectionChange)="updateFormCampanha($event,campanha)" >
+                {{campanha.nome_campanha}}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="!form.controls['campanha'].valid">
+                Campanha <strong>obrigatória</strong>
+              </mat-error>
+          </mat-form-field>
+          <div class="form-full-width">
+            <!-- <img *ngIf="this.form.value.url" [src]="this.form.value.url" style="width: 50%; margin:auto;"> -->
+          </div>
+          <div class="form-full-width">
+            <!-- <input type=hidden formControlName="url"> -->
+            <input type="file" accept="image/*" (change)="imagemSelecionada($event.target.files[0])">
+          </div>
+          <button mat-flat-button color="primary">Enviar</button>
+    </form>
+</div>

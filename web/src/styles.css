@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-menu{
-  -webkit-padding-start: 0px;
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.wrap{
+  width: 80%;
+  margin: auto;
+  float: none;
+  padding: 5vh 0px;
+}
+
+.form-full-width{
+  width: 100%;
+}
+div.form-full-width{
+  margin: 5vh 0px;
+}
+.center{
+  display: flex;
+  justify-content: center;
 }

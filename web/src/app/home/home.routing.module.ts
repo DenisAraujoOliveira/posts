@@ -2,33 +2,28 @@ import { TypeUserGuard } from './../shared/guards/type-user.service';
 import { AtendimentoComponent } from './atendimento/atendimento.component';
 import { CriacaoComponent } from './criacao/criacao.component';
 import { GpComponent } from './gp/gp.component';
-import { HomeComponent } from './home.component';
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const homeRoutes: Routes = [
     {
         path: '',
-        component: HomeComponent,
-        // children: [
+        children: [
+          {
+            path: 'gp',
+            component: GpComponent,
+          },
+          {
+            path: 'criacao',
+            component: CriacaoComponent,
+          },
+          {
+            path: 'atendimento',
+            component: AtendimentoComponent,
+          }
 
-      // ]
+      ]
     },
-    {
-      path: 'gp',
-      component: GpComponent,
-
-    },
-    {
-      path: 'criacao',
-      component: CriacaoComponent,
-
-    },
-    {
-      path: 'atendimento',
-      component: AtendimentoComponent,
-
-    }
 ];
 
 @NgModule({

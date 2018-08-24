@@ -1,6 +1,4 @@
-export class Cliente {
+export interface Cliente {
   id: number;
-  name: string;
-  comeco_campanha: Date;
-  final_camapanha: Date;
+  nome_cliente: string;
 }

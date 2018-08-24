@@ -15,9 +15,9 @@ class CreateCampanhasTable extends Migration
     {
         Schema::create('campanhas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('nome_campanha');
             $table->date('comeco_campanha');
-            $table->date('final_camapanha')->nullable();
+            $table->date('final_campanha')->nullable();
             $table->integer('cliente_id')->unsigned();
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();

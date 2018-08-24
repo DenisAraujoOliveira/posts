@@ -14,14 +14,20 @@ const appRoutes: Routes = [
     ]
   },
   {
-      path: 'login', component: LoginComponent,
-  },
-  {
     path: 'campanha',
     loadChildren: './campanha/campanha.module#CampanhaModule',
     canActivate: [AuthGuard],
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'post',
+    loadChildren: './post/post.module#PostModule',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'login', component: LoginComponent,
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 

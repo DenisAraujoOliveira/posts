@@ -1,3 +1,4 @@
+import { CampanhaModule } from './../campanha/campanha.module';
 import { ClienteModule } from './../cliente/cliente.module';
 import { AtendimentoComponent } from './atendimento/atendimento.component';
 import { GpComponent } from './gp/gp.component';
@@ -11,7 +12,8 @@ import { CriacaoComponent } from './criacao/criacao.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ClienteModule
+    ClienteModule,
+    CampanhaModule,
   ],
   declarations: [HomeComponent, GpComponent, CriacaoComponent, AtendimentoComponent],
   exports: [GpComponent, CriacaoComponent, AtendimentoComponent]

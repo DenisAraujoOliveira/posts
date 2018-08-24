@@ -12,7 +12,7 @@ class ClientesSeeder extends Seeder
     public function run()
     {
         factory(App\Cliente::class)->create([
-            'name' => 'Tim',
+            'nome_cliente' => 'Tim',
         ]);
     }
 }

@@ -1,15 +1,17 @@
-import { CampanhaComponent } from './campanha.component';
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ListaCampanhasInputComponent } from './lista-campanhas-input/lista-campanhas-input.component';
+import { InserirCampanhaComponent } from './inserir-campanha/inserir-campanha.component';
 
 const campanhaRoutes: Routes = [
     {
         path: '',
-        component: CampanhaComponent,
-        // children: [
-
-      // ]
+        component: ListaCampanhasInputComponent,
     },
+    {
+      path: 'inserir',
+      component: InserirCampanhaComponent
+    }
 ];
 
 @NgModule({

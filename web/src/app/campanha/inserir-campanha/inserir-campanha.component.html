@@ -1,0 +1,34 @@
+<form  [formGroup]="form" (ngSubmit)="onSubmit()"  enctype="multipart/form-data" >
+  <mat-form-field class="form-full-width">
+    <input matInput placeholder="Nome da Campanha" formControlName="nome_campanha" >
+    <mat-error *ngIf="!form.controls['nome_campanha'].valid">
+        Nome da campanha <strong>obrigatório</strong>
+      </mat-error>
+  </mat-form-field>
+  <div  class="form-full-width">
+    <mat-radio-group (change)="selecionarCliente($event)">
+        <label>Cliente: </label>
+        <mat-radio-button *ngFor="let cliente of clientes" [value]="cliente">{{cliente.nome_cliente}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <mat-form-field class="form-full-width">
+    <input matInput [min]="minDate" [matDatepicker]="picker" formControlName="comeco_campanha" placeholder="Inicio da Campanha" (dateChange)="dataComecoInserida()">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+    <mat-hint align="end">Clique no icone para selecionar a data</mat-hint>
+    <mat-error *ngIf="!form.controls['comeco_campanha'].valid">
+      Prazo é <strong>obrigatório</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-full-width">
+    <input matInput [min]="minDateFinal" [matDatepicker]="pickerfinal" formControlName="final_campanha" placeholder="Final da Campanha">
+    <mat-datepicker-toggle matSuffix [for]="pickerfinal"></mat-datepicker-toggle>
+    <mat-datepicker [disabled]="disableDataFinal" touchUi #pickerfinal></mat-datepicker>
+    <mat-hint *ngIf="!minDateFinal" align="start">Selecione primeiramente a data de inicio</mat-hint>
+    <mat-hint *ngIf="minDateFinal" align="end">Clique no icone para selecionar a data</mat-hint>
+  </mat-form-field>
+  <div class="form-full-width">
+    <button type="submit" mat-flat-button color="primary">Enviar</button>
+  </div>
+</form>

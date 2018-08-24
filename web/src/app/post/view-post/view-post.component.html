@@ -1,0 +1,12 @@
+
+<!-- <h2 mat-dialog-title>{{ post.nome_post }} </h2> -->
+<h2 mat-dialog-title>{{ post.nome_post }} </h2>
+<mat-dialog-content class="mat-typography">
+  <h3 class="subheading-2"> Campanha: {{ post.campanha.nome_campanha }} - Cliente: {{ post.campanha.cliente.nome_cliente }} / Prazo: {{ post.prazo }}</h3>
+  <img src="{{post.url}}" width=50%>
+  <p style="float:left">{{ post.text }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button color="warn" (click)="reprovar()" [mat-dialog-close]="post" cdkFocusInitial><mat-icon>close</mat-icon>Reprovar</button>
+    <button mat-flat-button color="primary" (click)="aprovar()" [mat-dialog-close]="post" cdkFocusInitial><mat-icon>check</mat-icon>Aprovar</button>
+</mat-dialog-actions>

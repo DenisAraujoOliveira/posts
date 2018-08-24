@@ -29,6 +29,7 @@ export class AppErrorHandler extends ErrorHandler {
   }
 
   goToLogin(): void {
+    console.log('deu erro tem q apagar');
     // this.as.logout();
     localStorage.clear();
     const router = this.injector.get(Router);

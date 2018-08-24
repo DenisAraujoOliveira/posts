@@ -15,6 +15,8 @@ export class ClienteService {
 
   getClientes(): Observable< Cliente []> {
     return this.http.get<Cliente[]>(environment.apiUrl + 'clientes');
-
+  }
+  getClienteById(id): Observable< Cliente []> {
+    return this.http.get<Cliente[]>(environment.apiUrl + 'cliente/' + id);
   }
 }

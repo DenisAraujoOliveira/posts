@@ -1,0 +1,8 @@
+<div class="center" *ngIf="spinner">
+  <mat-spinner [mode] = "'indeterminate'" ></mat-spinner>
+</div>
+<mat-grid-list cols="4" rowHeight="300px"  >
+  <mat-grid-tile *ngFor="let campanha of campanhas">
+    <app-view-campanha   [campanha]=" campanha " [cliente]=" campanha.cliente "></app-view-campanha>
+  </mat-grid-tile>
+</mat-grid-list>

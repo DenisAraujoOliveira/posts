@@ -12,7 +12,7 @@ class CampanhasSeeder extends Seeder
     public function run()
     {
         factory(App\Campanha::class)->create([
-            'name' => 'Tim Controle',
+            'nome_campanha' => 'Tim Controle',
             // 'comeco_campanha' => '2008-04-25',
         ]);
     }
